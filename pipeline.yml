@@ -23,8 +23,8 @@ jobs:
         - |
            git clone gist site
            cd repository && jekyll build && cp _site/* ../site && cd ../site
-           git config --global user.email "nobody@special.praqma"
-           git config --global user.name "praqma" && git add .
+           git config --global user.email "tobias.getrost@web.de"
+           git config --global user.name "getrostt" && git add .
            git commit -m "updated gist"
     on_failure:
       put: slack-alert 
@@ -105,7 +105,7 @@ resources:
 - name: repository
   type: git
   source:
-    uri: https://github.com/Sharor/concourse-workshop.git
+    uri: https://github.com/getrostt/concourse-workshop.git
     branch: master
     username: {{github-username}}
     password: {{github-password}}
@@ -113,7 +113,7 @@ resources:
 - name: gist
   type: git 
   source: 
-    uri: https://gist.github.com/4b2015849c31bfb860c6a021ba9ed63a.git
+    uri: https://gist.github.com/8c18e8003cda6263e3861acbc7b76f03.git
     branch: master
     username: {{github-username}}
     password: {{github-password}}
@@ -121,7 +121,7 @@ resources:
 - name: github-pages
   type: git
   source: 
-    uri: https://github.com/Sharor/concourse-workshop.git
+    uri: https://github.com/getrostt/concourse-workshop.git
     branch: gh-pages
     username: {{github-username}}
     password: {{github-password}}
